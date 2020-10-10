@@ -44,6 +44,16 @@
 			</buildArgs>
 		    </configuration>
 		</plugin>
+		<plugin>
+	<groupId>org.apache.tomcat.maven</groupId>
+	<artifactId>tomcat8-maven-plugin</artifactId>
+	<version>2.0</version>
+	<configuration>
+		<url>https://localhost:8086/manager/text</url>
+		<server>Tomcat</server>
+		<path>/MyWebapp</path>
+	</configuration>
+</plugin>
 	    </plugins>
 	</build>
 </project>
