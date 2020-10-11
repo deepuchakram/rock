@@ -1,4 +1,4 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sun Oct 11 13:02:04 IST 2020
-roshambo-1.0.pom>=
-roshambo-1.0.war>=
+#Sun Oct 11 11:59:07 IST 2020
+jsp-api-2.2.jar>central=
+jsp-api-2.2.pom>central=
