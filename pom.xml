@@ -7,8 +7,8 @@
 	<artifactId>roshambo</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-
 	<name>sudeepthi web application</name>
+	<url>http://maven.apache.org</url> 
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,15 +22,22 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	
 	<!--<properties>
    		<docker.image.prefix>rps</docker.image.prefix>
 	</properties> -->
 	<build>
-	    <plugins>
-		    
-		          <plugin>
+	
+	<finalName>rps</finalName>
+    <plugins>
+		<plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
