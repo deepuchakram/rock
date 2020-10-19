@@ -1,0 +1,5 @@
+<dependency>
+      <groupId>org.sonarsource.scanner.api</groupId>
+      <artifactId>sonar-scanner-api</artifactId>
+      <version>1.0</version>
+    </dependency>

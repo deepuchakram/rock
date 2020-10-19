@@ -23,6 +23,11 @@
 	
 	<dependencies>
 		<dependency>
+      <groupId>org.sonarsource.scanner.api</groupId>
+      <artifactId>sonar-scanner-api</artifactId>
+      <version>1.0</version>
+    </dependency>
+	<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
