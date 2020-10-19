@@ -15,14 +15,9 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
-	<dependency>
-      <groupId>org.sonarsource.scanner.api</groupId>
-      <artifactId>sonar-scanner-api</artifactId>
-      <version>1.0</version>
-    </dependency>
-	
+		
 	<dependencies>
-		<dependency>
+	<dependency>
       <groupId>org.sonarsource.scanner.api</groupId>
       <artifactId>sonar-scanner-api</artifactId>
       <version>1.0</version>
