@@ -15,11 +15,14 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
+<<<<<<< HEAD
 	<dependency>
       <groupId>org.sonarsource.scanner.api</groupId>
       <artifactId>sonar-scanner-api</artifactId>
       <version>1.0</version>
     </dependency>
+=======
+>>>>>>> 181f7e93da0d0b7c59554bdc3546b0ccf958efa3
 	
 	<dependencies>
 		<dependency>
@@ -27,7 +30,12 @@
       <artifactId>sonar-scanner-api</artifactId>
       <version>1.0</version>
     </dependency>
+<<<<<<< HEAD
 	<dependency>
+=======
+		
+		<dependency>
+>>>>>>> 181f7e93da0d0b7c59554bdc3546b0ccf958efa3
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
