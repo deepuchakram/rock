@@ -4,7 +4,7 @@ node {
 		prefix = '~/setup/git/';
 	else 
 		prefix = 'c:\\setup\\git\\';
-	def mvnHome = tool 'Maven 3.3.9'
+	def mvnHome = tool 'Maven' 
 	def tomcatWeb = ''
 	def mvnBin = mvnHome
 	if (isUnix()) {
