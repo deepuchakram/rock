@@ -68,6 +68,20 @@ pipeline {
             }
 
 	 }
+	      
+	stage('Archive artifacts') {
+      archive 'target/*.war'
+   }
+    
+    stage('Archive Test Results'){
+        shell "mvn insall tomcat7:deploy"
+        junit allowEmptyResults: true, testResults: '**/surefire-reports/*.xml'
+    }
+          
+	      
+	      
+	      
+	      
 
       }
 
