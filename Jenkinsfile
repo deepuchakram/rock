@@ -52,7 +52,7 @@ pipeline {
 		      [
 		           artifactId: 'roshambo', 
 			   classifier: '', 
-			   file: 'target/rps-1.0-SNAPSHOT.war', 
+			   file: 'target/rps.war', 
 			   type: 'war'
 		      ]
 		 ], 
