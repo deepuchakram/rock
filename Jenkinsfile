@@ -40,7 +40,7 @@ node {
         //shell "${mvnCli} deploy -Dmaven.test.skip=true"
         shell '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean deploy'
     }
-    stage('Push To Nexus'){
+   /* stage('Push To Nexus'){
         shell 'mvn clean package'
      // archiveArtifacts artifacts: 'target/*.war', onlyIfSuccessful: true
      /*nexusArtifactUploader artifacts: [[artifactId: 'roshambo', classifier: '', file: 'target/rps-1.0-SNAPSHOT.war', 
@@ -48,7 +48,7 @@ node {
         credentialsId: 'nexus', groupId: 'com.mcnz.rps', nexusUrl: 'http://13.126.21.144:8081/', 
         nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-sanpshots', version: '1.0-SNAPSHOT' */
         nexusArtifactUploader artifacts: [[artifactId: 'roshambo', classifier: '', file: 'target/rps.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.mcnz.rps', nexusUrl: '13.126.21.144:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-sanpshots', version: '1.0-SNAPSHOT'
-  } 
+  } */
     stage('Archive artifacts') {
       archive 'target/*.war'
    }
