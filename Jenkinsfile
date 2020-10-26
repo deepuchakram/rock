@@ -70,16 +70,26 @@ pipeline {
 	 }
 	      
 	stage('Archive artifacts') {
+		steps{
       archive 'target/*.war'
    }
+	}
     
     stage('Archive Test Results'){
+	    steps{
         shell "mvn insall tomcat7:deploy"
         junit allowEmptyResults: true, testResults: '**/surefire-reports/*.xml'
     }
-          
+    }
 	      
 	      
+	      
+ stage('Deploy To Tomcat'){
+     //   sshagent(['app-server']) {
+      //      shell 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-52-70-39-48.compute-1.amazonaws.com:/opt/apache-tomcat-8.5.38/webapps/'
+       sshagent(['tomcat'])
+        shell 'scp -o StrictHostKeyChecking=no target/*.war ec2-13-127-201-210.ap-south-1.compute.amazonaws.com:8081 /opt/apache-tomcat-8.5.35/webapps'
+}
 	      
 	      
 
