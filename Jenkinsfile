@@ -86,12 +86,14 @@ pipeline {
 	      
  stage('Deploy To Tomcat'){
      //   sshagent(['app-server']) {
+	 steps{
+		 shell "wget http://13.126.21.144:8081/repository/maven-snapshots/rps/rps.war"
       //      shell 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-52-70-39-48.compute-1.amazonaws.com:/opt/apache-tomcat-8.5.38/webapps/'
-       sshagent(['tomcat'])
-        shell 'scp -o StrictHostKeyChecking=no target/*.war ec2-13-127-201-210.ap-south-1.compute.amazonaws.com:8081 /opt/apache-tomcat-8.5.35/webapps'
+		 sshagent(['tomcat']){
+        shell 'scp -o StrictHostKeyChecking=no target/*.war ec2-13-127-201-210.ap-south-1.compute.amazonaws.com:8081:/opt/apache-tomcat-8.5.35/webapps'
 }
-	      
-	      
+ }	      
+ }	      
 
       }
 
