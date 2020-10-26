@@ -1,93 +1,65 @@
 pipeline {
-
     agent any
-
      tools {
-
        maven 'Maven'
-
      }
 	
-
       stages {
-	      
-	      stage('Code Checkout') {
+	     
+	 stage('Code Checkout') {
             steps {
-          
-            git credentialsId: 'Github-deepuchakram', url: 'https://github.com/deepuchakram/rock.git'
+                      git credentialsId: 'Github-deepuchakram', url: 'https://github.com/deepuchakram/rock.git'
 	    }
 	}
 
 	stage('Unit Test') {
-
             steps {
-
 		tool name: 'Maven', type: 'maven'
-
-                sh 'mvn clean test'
-
+                shell 'mvn clean test'
 	    }
-
 	 }
 
 	 stage("SonarQube analysis") {
-
              steps {
-
                  withSonarQubeEnv('sonar7') {
-
-                  sh 'mvn sonar:sonar'
-
+                  shell 'mvn sonar:sonar'
                  }    
-
              }
-
          }
-
+	       stage("Quality Gate") {
+		   steps {
+	              timeout(time: 1, unit: 'HOURS') 
+	                waitForQualityGate abortPipeline: true
+		   }
+	       } 
+     	 }
+	
 	 stage('package') {
 
             steps {
 
 		tool name: 'Maven', type: 'maven'
-
-                sh 'mvn package'
-
+                shell 'mvn package'
 		}
-
 	 }
 
 	 stage('Publish Artifacts to Nexus') {
-
             steps {
-
                  nexusArtifactUploader artifacts: [
-
 		      [
-
 		           artifactId: 'roshambo', 
-
 			   classifier: '', 
-
 			   file: 'target/rps-1.0-SNAPSHOT.war', 
-
 			   type: 'war'
-
 		      ]
-
 		 ], 
 
 		 credentialsId: 'nexus3', 
-
 		 groupId: 'com.mcnz.rps', 
-
 		 nexusUrl: '13.126.21.144:8081', 
-
 		 nexusVersion: 'nexus3', 
-
 		 protocol: 'http', 
-
 		 repository: 'http://13.126.21.144:8081/repository/maven-snapshots/', 
-
 		 version: '1.0-SNAPSHOT'
 
             }
