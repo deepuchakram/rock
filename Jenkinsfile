@@ -7,14 +7,16 @@ pipeline {
        maven 'Maven'
 
      }
-	stage('Code Checkout') {
+	
+
+      stages {
+	      
+	      stage('Code Checkout') {
             steps {
           
             git credentialsId: 'Github-deepuchakram', url: 'https://github.com/deepuchakram/rock.git'
 	    }
 	}
-
-      stages {
 
 	stage('Unit Test') {
 
