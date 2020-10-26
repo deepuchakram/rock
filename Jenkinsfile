@@ -18,12 +18,12 @@ pipeline {
                 shell 'mvn clean test'
 	    }
 	 }
-	     /* stage('Code Analysis') {
+	      stage('build & SonarQube analysis') {
 	          steps {
-	              withSonarQubeEnv('My Sonarqube Server') {
+	            //  withSonarQubeEnv('My Sonarqube Server') {
 			   shell 'mvn sonar:sonar'
 		              }
-		            }
+		           // }
 	        	  }
 
 	 
@@ -33,23 +33,9 @@ pipeline {
 	                waitForQualityGate abortPipeline: true
 		   }
 	       } 
-	       } */
-	      
-          stage("build & SonarQube analysis") {
-            agent any
-            steps {
-              withSonarQubeEnv('My SonarQube Server') {
-                shell 'mvn clean package sonar:sonar'
-              }
-            }
-          }
-          stage("Quality Gate") {
-            steps {
-              timeout(time: 1, unit: 'HOURS') {
-                waitForQualityGate abortPipeline: true
-              }
-            }
-          }
+	       } 
+	               
+          
       
 	 stage('package') {
 
