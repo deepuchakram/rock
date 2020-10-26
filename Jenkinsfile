@@ -18,21 +18,22 @@ pipeline {
                 shell 'mvn clean test'
 	    }
 	 }
+	      stage('Code Analysis') {
+	          steps {
+	              withSonarQubeEnv('My Sonarqube Server') {
+			   shell 'mvn sonar:sonar'
+		              }
+		            }
+	        	  }
 
-	 stage("SonarQube analysis") {
-             steps {
-                 withSonarQubeEnv('sonar7') {
-                  shell 'mvn sonar:sonar'
-                 }    
-             }
-         }
-	       stage("Quality Gate") {
+	 
+                stage("Quality Gate") {
 		   steps {
-	              timeout(time: 1, unit: 'HOURS') 
+			   timeout(time: 1, unit: 'HOURS') {
 	                waitForQualityGate abortPipeline: true
 		   }
 	       } 
-	
+	       }
 	 stage('package') {
 
             steps {
