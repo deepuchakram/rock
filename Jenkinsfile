@@ -47,7 +47,7 @@ node {
                                        type: 'war']], 
         credentialsId: 'nexus', groupId: 'com.mcnz.rps', nexusUrl: 'http://13.126.21.144:8081/', 
         nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-sanpshots', version: '1.0-SNAPSHOT' */
-        nexusArtifactUploader artifacts: [[artifactId: 'roshambo', classifier: '', file: 'target/rps.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.mcnz.rps', nexusUrl: '13.126.21.144:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-sanpshots', version: '1.0-SNAPSHOT'
+        //nexusArtifactUploader artifacts: [[artifactId: 'roshambo', classifier: '', file: 'target/rps.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.mcnz.rps', nexusUrl: '13.126.21.144:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-sanpshots', version: '1.0-SNAPSHOT'
   } */
     stage('Archive artifacts') {
       archive 'target/*.war'
