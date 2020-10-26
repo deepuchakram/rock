@@ -71,14 +71,14 @@ pipeline {
 	      
 	stage('Archive artifacts') {
 		steps{
-      archive 'target/*.war'
-   }
+      			archive 'target/*.war'
+  			 }
 	}
     
     stage('Archive Test Results'){
 	    steps{
         shell "mvn insall tomcat7:deploy"
-        junit allowEmptyResults: true, testResults: '**/surefire-reports/*.xml'
+       // junit allowEmptyResults: true, testResults: '**/surefire-reports/*.xml'
     }
     }
 	      
