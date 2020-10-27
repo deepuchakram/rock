@@ -126,7 +126,7 @@ pipeline {
 		 shell "wget http://13.126.21.144:8081/repository/maven-snapshots/com/mcnz/rps/roshambo/1.0-SNAPSHOT/roshambo-1.0-20201026.114258-1.war"
       //      shell 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-52-70-39-48.compute-1.amazonaws.com:/opt/apache-tomcat-8.5.38/webapps/'
 		// sshAgent(['tomcat']){
-        shell "scp -o StrictHostKeyChecking=no target/*.war http://13.126.21.144:8081:/opt/apache-tomcat-8.5.35/webapps"
+        shell "scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.2.219:/opt/apache-tomcat-8.5.35/webapps"
 		}
 		 }
 	      
