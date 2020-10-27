@@ -11,7 +11,34 @@ pipeline {
                       git credentialsId: 'Github-deepuchakram', url: 'https://github.com/deepuchakram/rock.git'
 	    }
 	}
+	      
 
+	      stage('Build') {
+		      steps{
+      shell 'mvn clean install -DskipTests'
+    }
+	      }
+    stage('maven compile'){
+        // def mvnHome = tool name: 'Maven', type: 'maven'
+        // def mvnCli = "${mvnHome}/bin/mvn"
+	    steps{
+        shell "${mvnCli} clean compile"
+	    }
+    }
+
+    stage('Unit Test') {
+	    steps{
+      shell 'mvn test'
+    }
+    }
+    stage('Integration Test') {
+	   steps {
+      shell 'mvn verify -DskipUnitTests'
+    }
+    }      
+	      
+	      
+	      
 	stage('Unit Test') {
             steps {
 		tool name: 'Maven', type: 'maven'
