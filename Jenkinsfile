@@ -22,7 +22,7 @@ pipeline {
         // def mvnHome = tool name: 'Maven', type: 'maven'
         // def mvnCli = "${mvnHome}/bin/mvn"
 	    steps{
-        shell "${mvnCli} clean compile"
+        shell 'mvn clean compile'
 	    }
     }
 
