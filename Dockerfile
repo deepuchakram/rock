@@ -14,9 +14,15 @@ RUN mvn install
 
 #Nexus
 
-
+FROM Maven-jdk-8-alpine as bin
+WORKDIR /rock
+COPY --from=repo /rock/rps  /rock
+ 
+EXPOSE 8083
 
 
 #Tomcat
 FROM tomcat:8.0.20-jre8
 COPY --from=build /rock/target/rps*.war /opt/apache-tomcat-8.5.35/webapps/rps.war
+ADD /rps.war rps.war
+ENTRYPOINT ["java","-jar","rps.war"]
