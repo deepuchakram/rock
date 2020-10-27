@@ -48,6 +48,13 @@ pipeline {
                 shell 'mvn package'
 		}
 	 }
+	     
+	stage('maven deploy'){
+		steps{
+        //shell "${mvnCli} deploy -Dmaven.test.skip=true"
+        shell '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean deploy'
+    }
+	}     
 
 	 stage('Publish Artifacts to Nexus') {
             steps {
