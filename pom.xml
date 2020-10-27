@@ -94,7 +94,7 @@
 		<!--<path>/${project.build.finalName}</path>
 		<update>true</update> -->
 		<!--<server>maven-tomcat-war-deployment-server</server> -->
-		<url>http://192.168.0.106:8086/manager/text</url>
+		<url>http://13.127.201.210:8090/manager/text</url>
 		<server>Tomcat</server> 
 		<path>/rps</path>
 		<username>tomcat</username>
