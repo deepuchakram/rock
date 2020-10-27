@@ -115,6 +115,21 @@ pipeline {
     }
     }
 	      
+	stage("Build Docker image")  {
+            steps { 
+            shell "docker build -t rock:v0.${BUILD_NUMBER} ."
+                       }
+	  }  
+	stage(push docker image to nexus")  {
+		    steps{
+		    shell "docker tag rock:v0.${BUILD_NUMBER} 13.126.21.144:8083/myapp:v0.${BUILD_NUMBER}"
+	    withDockerRegistry(credentialsId: 'private-docker', url: 'http://13.126.21.144:8083') {
+             shell "docker push 13.126.21.144:8083/rock:v0.${BUILD_NUMBER}"
+            }
+	      
+	      
+	      
+	      
 	      
 	      
  stage('Deploy To Tomcat'){
