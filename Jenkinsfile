@@ -91,7 +91,7 @@ pipeline {
      //   sshagent(['app-server']) {
 	 steps{
 		 sshagent(['ssh-tomcat']) {
-			 stages.sh "git push origin ${branchName}"
+			 //stages.sh "git push origin ${branchName}"
 		
 		 shell "wget http://13.126.21.144:8081/repository/maven-snapshots/com/mcnz/rps/roshambo/1.0-SNAPSHOT/roshambo-1.0-20201026.114258-1.war"
       //      shell 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@ec2-52-70-39-48.compute-1.amazonaws.com:/opt/apache-tomcat-8.5.38/webapps/'
