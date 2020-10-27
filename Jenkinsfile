@@ -126,6 +126,8 @@ pipeline {
 	    withDockerRegistry(credentialsId: 'private-docker', url: 'http://13.126.21.144:8083') {
              shell "docker push 13.126.21.144:8083/rock:v0.${BUILD_NUMBER}"
             }
+		    }
+	}
 	      
 	      
 	      
