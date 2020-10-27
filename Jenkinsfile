@@ -1,4 +1,10 @@
 pipeline {
+	
+	environment {
+    registry = "admin/rock"
+    registryCredential = 'private-docker'
+    dockerImage = ''
+  }
     agent any
      tools {
        maven 'Maven'
