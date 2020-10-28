@@ -120,7 +120,7 @@ pipeline {
        // junit allowEmptyResults: true, testResults: '**/surefire-reports/*.xml'
     }
     }
-	      /*
+	      
 	stage("Build Docker image")  {
             steps { 
             shell "docker build -t rock:v0.${BUILD_NUMBER} ."
@@ -135,7 +135,7 @@ pipeline {
 		    }
 	}
 	      
-	*/      
+	   
 	      
 	      
 	      
