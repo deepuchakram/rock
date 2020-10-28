@@ -1,4 +1,5 @@
 FROM openjdk:8
+CMD ["echo" , "hello Sudeepthi"]
 RUN mkdir rock
 WORKDIR /rock
 ADD target/rps.war rps.war

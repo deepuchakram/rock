@@ -34,6 +34,12 @@
 			<version>3.1.0</version>
 			<scope>test</scope>
 		</dependency>
+<dependency>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-deploy-plugin</artifactId>
+  <version>3.0.0-M1</version>
+  <type>maven-plugin</type>
+</dependency>
 	</dependencies>
 	
 	<!--<properties>
@@ -52,7 +58,7 @@
           <target>1.7</target>
         </configuration>
       </plugin>
-		<plugin>
+	<!--	<plugin>
 		    <groupId>com.spotify</groupId>
 		    <artifactId>dockerfile-maven-plugin</artifactId>
 		    <version>1.3.6</version>
@@ -84,7 +90,7 @@
       <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
     </buildArgs>
   </configuration>
-</plugin>
+</plugin> -->
 		<!--Tomcat plugin -->
 		<plugin>
 	<groupId>org.apache.tomcat.maven</groupId>
